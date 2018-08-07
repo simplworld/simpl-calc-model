@@ -1,0 +1,7 @@
+https://7e1b08465a2c5d2ba410cad5559f02751278ba79@github.com/simplworld/simpl-modelservice/archive/v0.0.13.zip
+
+# tests
+pytest==3.1.3
+pytest-cov==2.5.1
+pytest-django==3.1.2
+django-test-plus==1.0.22
