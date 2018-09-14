@@ -1,4 +1,4 @@
-modelservice==0.7.6
+simpl-modelservice==0.7.7
 
 # tests
 pytest==3.1.3
