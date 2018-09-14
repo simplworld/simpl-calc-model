@@ -1,4 +1,4 @@
-https://github.com/simplworld/simpl-modelservice/archive/v0.7.0.zip
+modelservice==0.7.6
 
 # tests
 pytest==3.1.3
