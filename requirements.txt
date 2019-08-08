@@ -1,7 +1,8 @@
-git+https://github.com/simplworld/simpl-modelservice.git
+#git+https://github.com/simplworld/simpl-modelservice.git
+git+https://github.com/simplworld/simpl-modelservice@16-django-2.0
 
 # tests
-pytest==3.1.3
-pytest-cov==2.5.1
-pytest-django==3.1.2
-django-test-plus==1.0.22
+pytest==4.6.3
+pytest-cov==2.7.1
+pytest-django==3.5.0
+
