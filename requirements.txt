@@ -1,5 +1,4 @@
-#git+https://github.com/simplworld/simpl-modelservice.git
-git+https://github.com/simplworld/simpl-modelservice@16-django-2.2
+git+https://github.com/simplworld/simpl-modelservice.git
 
 # tests
 pytest==4.6.3
