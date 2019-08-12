@@ -4,11 +4,3 @@ git+https://github.com/simplworld/simpl-modelservice.git
 pytest==4.6.3
 pytest-cov==2.7.1
 pytest-django==3.5.0
-
-django-webpack-loader==0.6.0
-
-gunicorn==19.8.1
-envparse==0.2.0
-
-# Dev requirements
-autobahn==17.10.1
