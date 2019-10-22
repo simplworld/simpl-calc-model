@@ -25,6 +25,17 @@ $ ./manage.py run_modelservice --loglevel=debug
 
 Which will turn on verbose debugging of the Autobahn/Crossbar daemon to help debug interactions between the browser and model service backend.
 
+## Run model service as 2 processes
+
+1. Get a copy of the currently in use crossbar configuration by running
+    `./manage.py run_modelservice --print-config > config.json`
+1. Edit `config.json` to remove the entire {"type": "guest", ...} stanza and final line
+1. Run crossbar service:    
+    `./manage.py run_modelservice --config=./config.json --loglevel info --settings=simpl_calc_model.settings`
+1. In a separate terminal, run guest service:    
+    `HOSTNAME=localhost PORT=8080 ./manage.py run_guest --settings=simpl_calc_model.settings`
+
+
 ## Run unit tests
 
 ```shell
