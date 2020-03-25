@@ -1,6 +1,6 @@
 import djclick as click
 
-from modelservice.simpl.sync import games_client
+from modelservice.simpl.syn import games_client
 
 
 def echo(text, value):
