@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+  model.backend:
+    build:
+      context: .
+    networks:
+      - simpl
+    volumes:
+      - .:/code
+    ports:
+      - "8080:8080"
+    command: ["/code/manage.py", "run_modelservice"]
+    environment:
+      - DJANGO_SETTINGS_MODULE=simpl_calc_model.settings
+      - SIMPL_GAMES_URL=http://api:8000/apis/
+      - CALLBACK_URL=http://model.backend:8080/callback
+    stop_signal: SIGTERM
+
+networks:
+  simpl:
+    external:
+      name: simpl-games-api_simpl
