@@ -10,7 +10,7 @@ services:
       - .:/code
     ports:
       - "8080:8080"
-    command: ["/code/manage.py", "run_modelservice"]
+    command: /code/manage.py run_modelservice --loglevel=info 
     environment:
       - DJANGO_SETTINGS_MODULE=simpl_calc_model.settings
       - SIMPL_GAMES_URL=http://api:8000/apis/

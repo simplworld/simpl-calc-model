@@ -1,5 +1,5 @@
-git+https://github.com/simplworld/simpl-modelservice.git
-
+#git+https://github.com/simplworld/simpl-modelservice.git
+simpl-modelservice==0.7.15
 # tests
 pytest==4.6.3
 pytest-cov==2.7.1
