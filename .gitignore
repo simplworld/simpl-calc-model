@@ -75,5 +75,4 @@ key.priv
 key.pub
 node.pid
 
-
-
+/config.json
