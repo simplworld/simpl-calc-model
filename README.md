@@ -29,7 +29,7 @@ $ docker-compose up
 this will create the Docker image and run it.  The first time you run it it will error
 as it can't find the simpl-calc game in the API.
 
-Create a shell into the simpl-calc-model container by running:
+In a separate terminal, create a shell into the simpl-calc-model container by running:
 
 ```bash
 $ docker-compose run --rm model.backend bash
@@ -43,21 +43,23 @@ $ ./manage.py create_default_env
 
 You should see this create the 'simpl-calc' game, phases, users, etc.
 
-Stop and restart the docker container with `docker-compose up` now see a
-startup log message to the effect of:
+In in a separate terminal, stop and restart the docker container by running these commands: 
+
+```bash
+$ docker-compose down
+$ docker-compose up
+```
+
+You should now see a startup log message to the effect of:
 
 ```
-Game `pricing` installed in 1.716s
+Game `simpl-calc` installed in 2.063s.
 ```
 
-This means the pricing-model is able to successfully communicate with the API.
-
-
+This means the simpl-calc-model is able to successfully communicate with the API.
 
 
 ## Local Setup Without Docker
-
-
 
 $ mkvirtualenv simpl-calc-model
 $ add2virtualenv .
