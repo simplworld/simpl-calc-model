@@ -1,6 +1,6 @@
 #git+https://github.com/simplworld/simpl-modelservice.git
-simpl-modelservice==0.9.1
-
+#simpl-modelservice==0.9.1
+git+https://github.com/simplworld/simpl-modelservice.git@permissions-fix#egg=simpl-modelservice
 # tests
 pytest==4.6.3
 pytest-cov==2.7.1
