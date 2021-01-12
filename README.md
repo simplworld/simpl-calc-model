@@ -6,7 +6,7 @@
 ## Install simpl-calc-model
 
 ```shell
-$ git clone git@github.com:simplworld/simpl-calc-model.git
+$ git clone https://github.com/simplworld/simpl-calc-model.git
 $ cd simpl-calc-model
 ```
 
@@ -43,7 +43,7 @@ $ ./manage.py create_default_env
 
 You should see this create the 'simpl-calc' game, phases, users, etc.
 
-In in a separate terminal, stop and restart the docker container by running these commands: 
+In a separate terminal, stop and restart the docker container by running these commands: 
 
 ```bash
 $ docker-compose down
