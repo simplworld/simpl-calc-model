@@ -62,7 +62,6 @@ This means the simpl-calc-model is able to successfully communicate with the API
 ## Local Setup Without Docker
 
 $ mkvirtualenv simpl-calc-model
-$ add2virtualenv .
 
 $ pip install -r requirements.txt
 ```
