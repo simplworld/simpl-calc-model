@@ -1,6 +1,6 @@
 # simpl-calc-model - example single-player simulation model service.
 
-## Python Setup (assumes Python >= 3.6 and simpl-games-api server running)
+## Python Setup (assumes Python 3.6 and simpl-games-api server running)
 
 
 ## Install simpl-calc-model
@@ -43,9 +43,10 @@ $ ./manage.py create_default_env
 
 You should see this create the 'simpl-calc' game, phases, users, etc.
 
-In a separate terminal, stop and restart the docker container by running these commands: 
+Exit from the shell then stop and restart the docker container by running these commands: 
 
 ```bash
+$ exit
 $ docker-compose down
 $ docker-compose up
 ```
@@ -58,14 +59,15 @@ Game `simpl-calc` installed in 2.063s.
 
 This means the simpl-calc-model is able to successfully communicate with the API.
 
-
 ## Local Setup Without Docker
 
-$ mkvirtualenv simpl-calc-model
+### Create a virtual environment
 
+```bash
+$ mkvirtualenv simpl-calc-model
 $ pip install -r requirements.txt
 ```
-## Run model service
+### Run model service
 
 ```shell
 $ export DJANGO_SETTINGS_MODULE=simpl_calc_model.settings
@@ -80,7 +82,7 @@ $ ./manage.py run_modelservice --loglevel=debug
 
 Which will turn on verbose debugging of the Autobahn/Crossbar daemon to help debug interactions between the browser and model service backend.
 
-## Run model service as 2 processes
+### Run model service as 2 processes
 
 1. Get a copy of the currently in use crossbar configuration by running
     `./manage.py run_modelservice --print-config > config.json`

@@ -30,4 +30,4 @@ ENTRYPOINT ["/tini", "--"]
 
 CMD /code/manage.py run_modelservice --loglevel=debug
 
-LABEL Description="Image for simpl-calc-model" Vendor="Wharton" Version="2.2.69"
+LABEL Description="Image for simpl-calc-model" Vendor="Simpl" Version="0.0.1"
