@@ -1,6 +1,6 @@
 # simpl-calc-model - example single-player simulation model service.
 
-## Python Setup (assumes Python >= 3.6 and simpl-games-api server running)
+## Python Setup (assumes Python == 3.7 and simpl-games-api server running)
 
 
 ## Install simpl-calc-model
