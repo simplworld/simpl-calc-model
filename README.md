@@ -162,9 +162,7 @@ to launch:
 
 Once all tasks complete, message will be printed out indicating how many seconds it took to run all profile tests
 
-If the run is not configured to submit new decisions for each profile user, error messages will be printed out.
-
-Before rerunning the profiling test, recreate the test run:
+To re-run the profiling test from scratch, recreate the test run:
 
     ./manage.py create_default_env -n a --reset
 

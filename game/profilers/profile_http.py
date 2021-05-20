@@ -17,14 +17,18 @@ class ProfileHttpTestCase(ProfileCase):
             print('profile_submit_decision: email=', email)
 
             # email format is <char><int>@ where <int> is 1..78
+            # which assumes run name is a single letter
             decision = int(email[1:email.find('@')])
+
+            # introduce a delay to prevent publish requests getting lost
+            # await asyncio.sleep(decision)
 
             coro_client = games_client_factory()
 
             async with coro_client as coro_session:
                 try:
                     # Determine Run and Runuser based on player email
-                    run_name = email[0]  # assumes run name is a single letter
+                    run_name = email[0]  # run name is a single letter
                     run = await coro_session.runs.get(
                         game_slug=settings.GAME_SLUG,
                         name=run_name,
@@ -36,7 +40,8 @@ class ProfileHttpTestCase(ProfileCase):
                     )
 
                     # From here down, pull data from modelservice via WAMP
-                    # emulating the calls made by the simpl-react simpl decorator
+
+                    # First, emulate calls made by the simpl-react simpl decorator when a player logs in
 
                     runuser_topic = 'world.simpl.sims.simpl-calc.model.runuser.' + str(runuser.id)
                     # print('runuser_topic: ', runuser_topic)
@@ -72,6 +77,8 @@ class ProfileHttpTestCase(ProfileCase):
                     # print(get_roles_uri, '->')
                     # print(get_roles_result)
 
+                    # Next, prepare to submit player's decision
+
                     # get id of last period of player's scenario
                     periods = get_scope_tree_result['children'][0]['children']
                     # print('periods: ')
@@ -83,7 +90,11 @@ class ProfileHttpTestCase(ProfileCase):
                     print(e)
                     return
 
-                # submit player's decision
+                # submit player's decision against the last period
                 uri = 'world.simpl.sims.simpl-calc.model.period.' + str(last_period_id) + '.submit_decision'
 
-                self.publish_as(email, uri, decision)  # TODO refactor CalcPeriod.submit_decision to be an RPC
+                status = await self.call_as(email, uri, decision)
+                if status != 'ok':
+                    raise ValueError(
+                        "submit_decision: status=" + status)
+
