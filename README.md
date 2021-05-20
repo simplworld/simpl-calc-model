@@ -137,6 +137,38 @@ where:
 $ ./manage.py submit_decision -s <scenario_id> -d <decision>
 ```
 
+## Modelservice Profiling
+
+### Run modelservice profiling tests locally
+
+1. Run simpl-games-api modelservice
+1. Run simpl-calc-model modelservice
+
+In a separate terminal window, run the profiler:
+
+Create a test run named 'a' with 2 players named after the run (e.g. run 'a' with players 'a1@div.edu', etc)
+
+    ./manage.py create_default_env -n a
+
+To run each player test once for each user in the `emails/emails-4.txt` file, run:
+
+    profile.sh -m game.profilers -u emails/emails-2.txt -g 1
+
+to launch:
+
+    ./manage.py profile -m game.profilers -g 1 -w 2 --log-level error --user-email a1@div.edu
+    ./manage.py profile -m game.profilers -g 1 -w 2 --log-level error --user-email a2@div.edu
+
+
+Once all tasks complete, message will be printed out indicating how many seconds it took to run all profile tests
+
+If the run is not configured to submit new decisions for each profile user, error messages will be printed out.
+
+Before rerunning the profiling test, recreate the test run:
+
+    ./manage.py create_default_env -n a --reset
+
+
 Copyright © 2018 The Wharton School,  The University of Pennsylvania 
 
 This program is free software; you can redistribute it and/or

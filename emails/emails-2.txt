@@ -1,4 +1,4 @@
-s1@calc.edu
-s2@calc.edu
+a1@calc.edu
+a2@calc.edu
 
 
