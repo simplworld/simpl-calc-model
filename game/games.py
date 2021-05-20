@@ -1,3 +1,7 @@
+import asyncio
+
+from django.conf import settings
+
 from modelservice.games import Period, Game
 from modelservice.games import subscribe, register
 
@@ -25,6 +29,6 @@ class SimplCalcPeriod(Period):
         self.session.log.info("submit_decision: stepped scenario")
 
 
-Game.register('simpl-calc', [
+Game.register(settings.GAME_SLUG, [
     SimplCalcPeriod,
 ])
