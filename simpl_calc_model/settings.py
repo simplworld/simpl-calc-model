@@ -141,3 +141,4 @@ SIMPL_GAMES_AUTH = ('simpl@simpl.world', 'simpl')
 
 ROOT_TOPIC = 'world.simpl.sims.simpl-calc'
 
+GAME_SLUG = 'simpl-calc'
