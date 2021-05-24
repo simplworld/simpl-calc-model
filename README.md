@@ -162,7 +162,7 @@ to launch:
 
 Once all tasks complete, message will be printed out indicating how many seconds it took to run all profile tests
 
-To re-run the profiling test from scratch, recreate the test run:
+Before rerunning the profiling test, recreate the test run:
 
     ./manage.py create_default_env -n a --reset
 
