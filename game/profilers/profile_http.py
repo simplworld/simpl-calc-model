@@ -79,10 +79,15 @@ class ProfileHttpTestCase(ProfileCase):
 
                     # Next, prepare to submit player's decision
 
-                    # get id of last period of player's scenario
+                    # as scope tree children are not returned in order, avoid sorting periods
+                    if len(get_scope_tree_result['children'][0]['children']) > 1:
+                        raise Exception("ERROR: Player's scenario has more than one period")
+
+                    # get id of last period of player's scenario, which is also its first period
                     periods = get_scope_tree_result['children'][0]['children']
                     # print('periods: ')
                     # print(periods)
+                    # print('len(periods): ', len(periods))
                     last_period_id = periods[len(periods) - 1]['pk']
                     # print('last_period_id: ', last_period_id)
 
