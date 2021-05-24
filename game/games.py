@@ -5,7 +5,7 @@ from .runmodel import step_scenario, save_decision
 
 
 class SimplCalcPeriod(Period):
-    @subscribe
+    @register
     async def submit_decision(self, operand, **kwargs):
         """
         Receives the operand played and stores as a ``Decision`` then
@@ -18,11 +18,15 @@ class SimplCalcPeriod(Period):
         for k in kwargs:
             self.session.log.info("submit_decision: Key: {}".format(k))
 
+        self.session.log.info("submit_decision: operand: {}".format(operand))
+
         await save_decision(self.pk, operand)
         self.session.log.info("submit_decision: saved decision")
 
         await step_scenario(self.scenario.pk)
         self.session.log.info("submit_decision: stepped scenario")
+
+        return 'ok'
 
 
 Game.register('simpl-calc', [
