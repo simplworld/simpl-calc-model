@@ -67,6 +67,7 @@ This means the simpl-calc-model is able to successfully communicate with the API
 $ mkvirtualenv simpl-calc-model
 $ pip install -r requirements.txt
 ```
+
 ### Run model service
 
 ```shell
@@ -144,28 +145,41 @@ $ ./manage.py submit_decision -s <scenario_id> -d <decision>
 1. Run simpl-games-api modelservice
 1. Run simpl-calc-model modelservice
 
-In a separate terminal window, run the profiler:
+In a separate terminal window,
+
+Create and activate a virtual environment:
+
+```shell
+$ mkvirtualenv simpl-calc-model
+$ pip install -r requirements.txt
+```
 
 Create a test run named 'a' with 2 players named after the run (e.g. run 'a' with players 'a1@div.edu', etc)
 
-    ./manage.py create_default_env -n a
+```shell
+$ ./manage.py create_default_env -n a
+```
 
 To run each player test once for each user in the `emails/emails-4.txt` file, run:
 
-    profile.sh -m game.profilers -u emails/emails-2.txt -g 1
+```shell
+$ profile.sh -m game.profilers -u emails/emails-2.txt -g 1
+```
 
-to launch:
+to launch a separate profiling task for each email in the file:
 
-    ./manage.py profile -m game.profilers -g 1 -w 2 --log-level error --user-email a1@div.edu
-    ./manage.py profile -m game.profilers -g 1 -w 2 --log-level error --user-email a2@div.edu
-
+```
+./manage.py profile -m game.profilers -g 1 -w 2 --log-level error --user-email a1@div.edu
+./manage.py profile -m game.profilers -g 1 -w 2 --log-level error --user-email a2@div.edu
+```
 
 Once all tasks complete, message will be printed out indicating how many seconds it took to run all profile tests
 
 Before rerunning the profiling test, recreate the test run:
 
-    ./manage.py create_default_env -n a --reset
-
+```shell
+$ ./manage.py create_default_env -n a --reset
+```
 
 Copyright © 2018 The Wharton School,  The University of Pennsylvania 
 
