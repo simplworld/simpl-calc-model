@@ -20,8 +20,8 @@ class ProfileHttpTestCase(ProfileCase):
             # which assumes run name is a single letter
             decision = int(email[1:email.find('@')])
 
-            # introduce a delay to prevent publish requests getting lost
-            # await asyncio.sleep(decision)
+            password = email[0:email.find('@')]
+            # print('password: ', password)
 
             coro_client = games_client_factory()
 
@@ -98,7 +98,7 @@ class ProfileHttpTestCase(ProfileCase):
                 # submit player's decision against the last period
                 uri = 'world.simpl.sims.simpl-calc.model.period.' + str(last_period_id) + '.submit_decision'
 
-                status = await self.call_as(email, uri, decision)
+                status = await self.call_as(email, password, uri, decision)
                 if status != 'ok':
                     raise ValueError(
                         "submit_decision: status=" + status)
