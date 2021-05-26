@@ -6,9 +6,9 @@ from modelservice.profiler import ProfileCase
 from modelservice.simpl import games_client_factory
 
 
-class ProfileHttpTestCase(ProfileCase):
+class ProfileTestCase(ProfileCase):
     """
-    Profile HTTP calls from the modelservice to simpl-games-api.
+    Profiles HTTP calls to simpl-games-api and WAMP calls to the modelservice.
     """
 
     async def profile_submit_decision(self):
