@@ -160,7 +160,7 @@ Create a test run named 'a' with 2 players named after the run (e.g. run 'a' wit
 $ ./manage.py create_default_env -n a
 ```
 
-To run each player test once for each user in the `emails/emails-4.txt` file, run:
+To run each player test once for each user in the `emails/emails-2.txt` file, run:
 
 ```shell
 $ profile.sh -m game.profilers -u emails/emails-2.txt -g 1
