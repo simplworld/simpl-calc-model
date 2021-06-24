@@ -31,3 +31,4 @@ ENTRYPOINT ["/tini", "--"]
 CMD /code/manage.py run_modelservice --loglevel=debug
 
 LABEL Description="Image for simpl-calc-model" Vendor="Simpl" Version="1.0.0"
+

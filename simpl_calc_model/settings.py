@@ -130,3 +130,4 @@ EXTERNAL_AUTH_SHARED_SECRET = "simpl-calc-NmTnZCgcTpPgtsbw"
 # The root topic for this simulation/game
 ROOT_TOPIC = "world.simpl.sims.simpl-calc"
 
+GAME_SLUG = 'simpl-calc'
