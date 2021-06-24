@@ -1,4 +1,5 @@
-simpl-modelservice==0.10.0
+#simpl-modelservice==0.10.0
+git+https://github.com/simplworld/simpl-modelservice.git@support-game-level-rpc-calls#egg=simpl-modelservice
 
 # tests
 pytest==4.6.3
